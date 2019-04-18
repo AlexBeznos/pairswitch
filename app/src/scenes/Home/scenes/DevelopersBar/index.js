@@ -4,18 +4,12 @@ import { Icon } from 'antd'
 import { useDevs } from '../../../../hooks'
 import { SuspendedDevContext } from '../../../../contexts'
 import { moveDevToAvailable } from '../../../../services'
-import { DevTag } from './scenes'
+import { DevTag, SwitchLogo } from './scenes'
 import { NewItemDrawer } from './components'
-import {
-  pairswitch_logo,
-  pairswitch_logo2x,
-  pairswitch_logo3x
-} from './assets'
 import { 
   Container,
   DevsContainer,
-  IconButton,
-  Logo
+  IconButton
 } from './styled'
 
 export default function DeveloprsBar () {
@@ -34,13 +28,10 @@ export default function DeveloprsBar () {
   const toggleDevFormOpen = () => setDevFormOpened(!devFormOpened)
   const toggleTaskFormOpen = () => setTaskFormOpened(!taskFormOpened)
   const handleDevDrag = (dev) => () => addSuspendedDev(dev)
-  const handleSwitch = () => {
-    fetch('https://us-central1-pairswitch.cloudfunctions.net/switch')
-  }
 
   return (
     <>
-      <Logo onClick={handleSwitch} srcSet={`${pairswitch_logo}, ${pairswitch_logo2x} 2x, ${pairswitch_logo3x} 3x`} />
+      <SwitchLogo />
       <Container 
         onDrop={handleDevDrop}
         onDragOver={(e) => {e.preventDefault()}}

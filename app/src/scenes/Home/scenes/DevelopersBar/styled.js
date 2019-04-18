@@ -19,11 +19,3 @@ export const IconButton = styled(Tag)`
   display: block;
   float: right;
 `
-
-export const Logo = styled.img`
-  width: 80px;
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  cursor: pointer;
-`
