@@ -16,7 +16,7 @@ const prepareTasks = (tasks) => (id) => {
   }
 }
 
-const switchFunc = ({admin}) => (req, res) => async () => {
+const switcher = async ({admin}) => {
   const db = admin.database();
   const snapshot = await db.ref('tasks/').once('value');
   const dbTasks = snapshot.val();
@@ -43,8 +43,16 @@ const switchFunc = ({admin}) => (req, res) => async () => {
   await db
     .ref('tasks/')
     .update(changeSet)
+}
+
+const requestResolver = ({admin}) => (_, res) => async () => {
+  await switcher({admin})
 
   return res.status(200).end();
 }
 
-module.exports = switchFunc;
+module.exports = {
+  requestResolver,
+  switcher
+};
+
