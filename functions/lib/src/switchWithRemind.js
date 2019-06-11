@@ -4,7 +4,7 @@ const formatedHeader = {
   type: 'section',
   text: {
     type: 'mrkdwn',
-    text: "Hi all!:spock-hand:\nPairs has been changed) So current pairs looks like with:"
+    text: "Hi all!:spock-hand:\nPairs has been changed) So current pairs looks like this:"
   }
 }
 const divider = {
